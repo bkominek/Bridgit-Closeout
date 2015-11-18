@@ -1,0 +1,6 @@
+<%= form_for(issue) do |f| %>
+    <%= f.hidden_field :state, :value => 1 %>
+        <div class="actions">
+    <%= f.submit "Resolve" %>
+    </div>
+<% end %>

@@ -1,0 +1,41 @@
+<p id="notice" class="show-notice"><%= notice %></p>
+
+<h1>List Of Issues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>State</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td><%= issue.text %></td>
+        
+        <% if issue.state == 1 %>
+            <td>Resolved</td>
+            <td><%= link_to 'Delete', issue, method: :delete, data: { confirm: 'Are you sure you want to delete this issue?' } %></td>
+        <% elsif issue.state == 0%>
+            <td>
+                <%= render 'update_form', :issue => issue %>
+            </td>
+            <td><%= link_to 'Delete', issue, method: :delete, data: { confirm: 'This issue has not been deleted.  Are you sure you want to delete it?' } %></td>
+        <% end %>
+
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="issue-btn" onclick="showIssue()">Create New Issue</div>
+<div id="issue-form" class="default-issue">
+    <%= render 'form' %>
+</div>
+

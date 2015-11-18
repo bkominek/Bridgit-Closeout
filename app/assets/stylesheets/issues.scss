@@ -1,0 +1,39 @@
+// Place all the styles related to the issues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.issue-btn {
+    position: relative;
+    padding: 10px;
+    font-size: 15pt;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 190px;
+    text-align: center;
+    cursor: pointer;
+    left: 50%;
+    margin-left: -95px;
+}
+
+.default-issue {
+    overflow: hidden;
+    height:0;
+    -webkit-transition: height 0.5s ease-in-out;
+    -moz-transition: height 0.5s ease-in-out;
+    -o-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+    text-align: center;
+}
+
+.issue-show {
+    height:90px;
+}
+
+#issue-form {
+    .new_issue {
+        margin: 15px;
+    }
+
+    input[type='submit'] {
+        font-size: 12pt;
+    }
+}
