@@ -3,6 +3,7 @@
 Demo closeout app built in Rails.
 
 To run:
+
 $rails server
 
 in your browser, go to localhost:3000
