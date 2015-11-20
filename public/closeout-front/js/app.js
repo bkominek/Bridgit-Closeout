@@ -11,12 +11,15 @@ $(document).ready(function() {
                 resolved += '<div id="issue-' + data[i].id + '" class="issue-container">' + data[i].text + '</div>';
             }
         }
+
+        // Dynamically add issues into DOM
         $('#unresolved-container').append(unresolved);
         $('#resolved-container').append(resolved);
 
         $('.unresolved-issue').on('dragstart', Closeout.beginDrag);
     });
 
+    // bind a new function to the create new issue button
     $('#new-issue-form').submit(function(){
         var $this = $(this);
 
@@ -61,17 +64,20 @@ Closeout.allowDrop = function(ev) {
     ev.preventDefault();
 };
 
+// Show the create new issue popup
 Closeout.showPopup = function() {
     $('#overlay').show();
     $('#create-popup').show();
 };
 
+// Hide the create new issue popup, clear input
 Closeout.hidePopup = function() {
     $('#overlay').hide();
     $('#create-popup').hide();
     $('#issue_text').val('');
 };
 
+// Issue successfully created
 Closeout.issueCreated = function(data) {
     if (data && data.id) {
         $('#unresolved-container').append('<div id="issue-' + data.id + '" class="issue-container unresolved-issue" draggable="true">' + data.text + '</div>');
@@ -80,6 +86,7 @@ Closeout.issueCreated = function(data) {
     }
 };
 
+// Delete all resolved issues
 Closeout.clearList = function() {
     $.ajax({
         url: '/destroyAll',
