@@ -15,15 +15,14 @@
     <div class="center">Keep track of all of your issues</div>
     <div class="center">Drag issues from the unresolved column to the resolved column to mark them as resolved</div>
 
-    <input type="button" class="show-popup-btn" onclick="Closeout.showPopup()" value="Create New Issue">
-
     <div class="issue-parent">
         <div id="unresolved-container" class="column left">
             <h2>Unresolved Issues</h2>
+            <input type="button" class="issue-action" onclick="Closeout.showPopup()" value="Create New Issue">
         </div>
         <div id="resolved-container" class="column right" ondrop="Closeout.endDrag(event)" ondragover="Closeout.allowDrop(event)">
             <h2>Resolved Issues</h2>
-            <input type="button" class="clear-issues" onclick="Closeout.clearList()" value="Clear List">
+            <input type="button" class="issue-action" onclick="Closeout.clearList()" value="Clear List">
         </div>
         <div class="clearfloat"></div>
     </div>

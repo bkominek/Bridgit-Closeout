@@ -17,7 +17,7 @@ h1 {
     position: relative;
 }
 
-.clear-issues {
+.issue-action {
     position: absolute;
     top: 45px;
     right: 20px;
