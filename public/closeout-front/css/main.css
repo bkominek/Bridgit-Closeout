@@ -1,0 +1,102 @@
+h1 {
+    text-align: center;
+}
+
+.show-popup-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size:12pt;
+}
+
+.column {
+    width:50%;
+    box-sizing: border-box;
+    padding:20px;
+    display: inline-block;
+    position: relative;
+}
+
+.clear-issues {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+.center {
+    text-align: center;
+}
+
+.issue-container {
+    width: 100%;
+    border: 1px solid;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 12pt;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+#new-issue-form input[type="text"] {
+    width: 95%;
+}
+
+#new-issue-form input[type="submit"] {
+    margin-top:10px;
+    font-size: 12pt;
+}
+
+.resolved-focus {
+    opacity: 0.5;
+    background: #ccc;
+}
+
+/* prevent appending dragged element to child elements*/
+#resolved-container .issue-container {
+    pointer-events: none;
+}
+
+#resolved-container h2 {
+    pointer-events: none;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.create-popup {
+    display: none;
+    position: fixed;
+    width:400px;
+    height:160px;
+    top:50%;
+    margin-top:-80px;
+    left:50%;
+    margin-left: -200px;
+    background: #fff;
+    border: 1px solid;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 1;
+}
+
+#overlay {
+    background: #000;
+    display: none;
+    opacity: 0.3;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+}

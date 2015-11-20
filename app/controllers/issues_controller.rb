@@ -3,9 +3,17 @@ class IssuesController < ApplicationController
 
   # GET /issues
   # GET /issues.json
+  def root
+    render :file => 'public/closeout-front/index.html'
+  end
+
   def index
     @issues = Issue.all
     @issue = Issue.new
+    # respond_to do |format|
+    #     format.html { redirect_to issues_url, notice: 'Issue was successfully created.' }
+    #     format.json { render json: @issues }
+    # end
   end
 
   # GET /issues/1
@@ -30,7 +38,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.save
         format.html { redirect_to issues_url, notice: 'Issue was successfully created.' }
-        format.json { render :show, status: :created, location: @issue }
+        format.json { render json: @issue }
       else
         format.html { redirect_to issues_url, notice: 'There was a problem saving your issue.  Do you need a tissue?' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
@@ -44,7 +52,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       if @issue.update(issue_params)
         format.html { redirect_to issues_url, notice: 'Issue was successfully updated.' }
-        format.json { render :show, status: :ok, location: @issue }
+        format.json { render json: {'success' => true} }
       else
         format.html { render :edit }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
@@ -55,7 +63,16 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
+
     @issue.destroy
+    respond_to do |format|
+      format.html { redirect_to issues_url, notice: 'Issue was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroyAll
+    Issue.destroy_all(:state => 1)
     respond_to do |format|
       format.html { redirect_to issues_url, notice: 'Issue was successfully destroyed.' }
       format.json { head :no_content }

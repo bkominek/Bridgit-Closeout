@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="closeout-front/css/main.css" />
+    <title>Closeout</title>
+</head>
+
+<body>
+    <h1>Closeout Mini</h1>
+    <div class="center">Keep track of all of your issues</div>
+    <div class="center">Drag issues from the unresolved column to the resolved column to mark them as resolved</div>
+
+    <input type="button" class="show-popup-btn" onclick="Closeout.showPopup()" value="Create New Issue">
+
+    <div class="issue-parent">
+        <div id="unresolved-container" class="column left">
+            <h2>Unresolved Issues</h2>
+        </div>
+        <div id="resolved-container" class="column right" ondrop="Closeout.endDrag(event)" ondragover="Closeout.allowDrop(event)">
+            <h2>Resolved Issues</h2>
+            <input type="button" class="clear-issues" onclick="Closeout.clearList()" value="Clear List">
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+
+    <!-- initially hidden elements below -->
+
+    <div id="create-popup" class="create-popup">
+        <h2>Create new issue</h2>
+
+        <form class="new_issue" id="new-issue-form" action="/issues">
+            <div class="field">
+                <label for="issue_text">Text</label><br>
+                <input type="text" name="issue[text]" id="issue_text">
+            </div>
+
+            <input value="0" type="hidden" name="issue[state]" id="issue_state">
+
+            <div class="actions">
+                <input type="submit" name="commit" value="Create Issue">
+            </div>
+        </form>
+    </div>
+    <div id="overlay" onclick="Closeout.hidePopup()"></div>
+
+    <script type="text/javascript" src="closeout-front/js/zepto.min.js"></script>
+    <script type="text/javascript" src="closeout-front/js/config.js"></script>
+    <script type="text/javascript" src="closeout-front/js/app.js"></script>
+</body>
+
+</html>
